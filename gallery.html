@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Photo Gallery</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #e9f7fb;
+    }
+    .header {
+      text-align: center;
+      padding: 40px;
+      background-color: #333;
+      color: white;
+      font-size: 2rem;
+    }
+    .filter-buttons {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .filter-buttons button {
+      margin: 10px;
+      padding: 12px 20px;
+      background-color: #ff6f61;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .filter-buttons button:hover {
+      background-color: #ff4e39;
+      transform: translateY(-3px);
+    }
+    .gallery {
+      display: flex;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .gallery-item {
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .gallery-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .gallery-item img:hover {
+      transform: scale(1.1);
+    }
+    .gallery-caption {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 5px;
+      font-size: 1.1rem;
+    }
+    .load-more {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .load-more button {
+      padding: 15px 25px;
+      background-color: #333;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .load-more button:hover {
+      background-color: #555;
+      transform: translateY(-3px);
+    }
+    .slideshow {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .slideshow button {
+      margin: 10px;
+      padding: 12px 20px;
+      background-color: #ff6f61;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .slideshow button:hover {
+      background-color: #ff4e39;
+      transform: translateY(-3px);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Modern Photo Gallery</h1>
+  </div>
+
+  <div class="filter-buttons">
+    <button onclick="filterImages('all')">All</button>
+    <button onclick="filterImages('Creativity')">Nature</button>
+    <button onclick="filterImages('Moon')">Travel</button>
+  </div>
+
+  <div class="gallery" id="gallery">
+    <div class="gallery-item" data-category="Creativity">
+      <img src="20231021_204656.jpg" alt="Nature Scene">
+      <span class="gallery-caption">Creativity</span>
+    </div>
+    <div class="gallery-item" data-category="Moon">
+      <img src="20230926_204723.jpg" alt="Travel Destination">
+      <span class="gallery-caption">Moon</span>
+    </div>
+   
+  </div>
+
+  <div class="load-more">
+    <button onclick="loadMoreImages()">Load More</button>
+  </div>
+
+  <div class="slideshow">
+    <button onclick="startSlideshow()">Start Slideshow</button>
+    <button onclick="stopSlideshow()">Stop Slideshow</button>
+  </div>
+
+  <script>
+    function filterImages(category) {
+      const items = document.querySelectorAll('.gallery-item');
+      items.forEach(item => {
+        if (category === 'all' || item.dataset.category === category) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    function loadMoreImages() {
+      const gallery = document.getElementById('gallery');
+      for (let i = 0; i < 4; i++) {
+        const div = document.createElement('div');
+        div.className = 'gallery-item';
+        div.dataset.category = 'nature'; 
+        div.innerHTML = `<img src="20230428_191222.jpg" alt="New Image"><span class="gallery-caption">New Image</span>`;
+        gallery.appendChild(div);
+      }
+    }
+
+    let slideshowInterval;
+    function startSlideshow() {
+      const images = document.querySelectorAll('.gallery-item img');
+      let index = 0;
+      slideshowInterval = setInterval(() => {
+        images.forEach(img => img.style.transform = 'scale(1)');
+        images[index].style.transform = 'scale(1.1)';
+        index = (index + 1) % images.length;
+      }, 2000);
+    }
+    function stopSlideshow() {
+      clearInterval(slideshowInterval);
+    }
+  </script>
+
+</body>
+</html>

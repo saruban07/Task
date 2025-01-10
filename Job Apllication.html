@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Job Website 🧑‍🎓 </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #000000;
+        }
+
+        h1 {
+            color: #000000;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 30px;
+            width: 60%;
+            box-shadow: -4px 9px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        th {
+            width: 40%;
+        }
+
+        td input, td select, td textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #cecece;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        td input[type="submit"] {
+            background-color: #ac9e9e;
+            color: rgb(235, 230, 230);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        td input[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #777777;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <u><h1>Job Application</h1></u>
+        <p>Please fill the form without fail</p>
+        <form action="Job Application.html" method="post" enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <th>Full Name:</th>
+                    <td><input type="text" name="fullname" placeholder="Enter your Name" required></td>
+                </tr>
+                <tr>
+                    <th>Email:</th>
+                    <td><input type="email" name="email" placeholder="Enter your Email" required></td>
+                </tr>
+                <tr>
+                    <th>Phone No:</th>
+                    <td><input type="tel" name="phone" placeholder="Enter your Number" required></td>
+                </tr>
+                <tr>
+                    <th>Date of Birth:</th>
+                    <td><input type="date" name="dob" required></td>
+                </tr>
+                <tr>
+                    <th>Address:</th>
+                    <td><input type="text" name="address" placeholder="Enter your Address" required></td>
+                </tr>
+                <tr>
+                    <th>Gender:</th>
+                    <td>
+                        <label><input type="radio" name="gender" value="Male" required> Male</label>
+                        <label><input type="radio" name="gender" value="Female" required> Female</label>
+                        <label><input type="radio" name="gender" value="Other" required> Other</label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Job Position:</th>
+                    <td>
+                        <select name="job_position" required>
+                            <option value="" disabled selected>Select Position</option>
+                            <option value="Software Developer">Software Developer</option>
+                            <option value="Data Analyst">Data Analyst</option>
+                            <option value="Product Manager">Product Manager</option>
+                            <option value="HR Manager">HR Manager</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Experience (Years):</th>
+                    <td><input type="number" name="experience" placeholder="Years of Experience" min="0" required></td>
+                </tr>
+                <tr>
+                    <th>Skills:</th>
+                    <td><input type="text" name="skills" placeholder="Enter your skills" required></td>
+                </tr>
+                <tr>
+                    <th>Upload Resume:</th>
+                    <td><input type="file" name="resume" required></td>
+                </tr>
+                <tr>
+                    <th>Cover Letter:</th>
+                    <td><textarea name="cover_letter" rows="5" placeholder="Write a brief cover letter" required></textarea></td>
+                </tr>
+                <tr>
+                    <th>LinkedIn Profile:</th>
+                    <td><input type="url" name="linkedin" placeholder="Enter LinkedIn Profile URL"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label>
+                            <input type="checkbox" name="terms" required> I agree to the <a href="#">terms and conditions</a>.
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;"><input type="submit" value="Submit Application"></td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+</html>

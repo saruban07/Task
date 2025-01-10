@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Grid Concepts</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .box {
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, box-shadow 0.3s;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+            box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .box1 {
+            background-color: #f5b8c8;
+        }
+
+        .box2 {
+            background-color: #f3e7a6;
+        }
+
+        .box3 {
+            background-color: #a3d8f4;
+        }
+
+        .box4 {
+            background-color: #b7d7a8;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+            padding: 20px;
+            border: 2px solid #1d2322ac;
+            background-color: #2e6656;
+        }
+
+        .content {
+            margin: 10px 0;
+        }
+
+        .title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .description {
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <center><h1>Display: Grid Concepts</h1></center>
+        <div class="grid-container">
+            <div class="box box1">
+                <div class="title">Grid Container</div>
+                <div class="description">A grid container is a parent HTML element that uses the CSS "display: grid" property to create a flexible, two-dimensional layout system. This container establishes a grid-based structure in which child elements, called grid items, are automatically aligned into rows and columns. The layout is defined using properties like grid-template-rows and grid-template-columns, which specify the size and number of rows and columns in the grid. Additionally, the `gap` property (or `grid-gap`) allows for controlled spacing between grid items, making the layout cleaner and more visually appealing. The grid container also enables precise alignment and positioning of items through properties like `justify-items` (horizontal alignment), `align-items` (vertical alignment), and `place-items` (both). This system supports both explicit grids, where rows and columns are predefined, and implicit grids, where additional tracks are automatically created when needed. As a result, the grid container provides a powerful and intuitive way to create responsive and organized layouts for web pages.</div>
+            </div>
+            <div class="box box2">
+                <div class="title">Grid Items</div>
+                <div class="description">Grid items are the direct children of a grid container in a CSS Grid layout. These items are automatically positioned into the rows and columns defined by the grid container's properties. Unlike traditional layout methods, grid items do not need manual positioning—they are placed according to the grid structure, making it easy to create organized and responsive designs. You can control the size and position of grid items using properties like grid-column and grid-row, which define their placement and span across rows or columns. Additionally, grid items can be aligned individually within their grid cells using justify-self (horizontal alignment) and align-self (vertical alignment). They adapt naturally to the grid's rules but can also override those rules for specific layout needs, offering exceptional flexibility and precision in design.</div>
+            </div>
+            <div class="box box3">
+                <div class="title">Grid Tracks</div>
+                <div class="description">Grid tracks are the rows and columns that make up the structure of a CSS Grid layout. They are defined in the grid container using the grid-template-rows and grid-template-columns properties. A track is essentially a single row or column in the grid, and its size can be specified using fixed units (like px, em, or rem), percentages, or the flexible fr unit, which represents a fraction of the available space. Grid tracks form the boundaries within which grid items are placed, and their spacing can be controlled using the gap property (or grid-gap`). Additionally, tracks can be implicit (automatically created by the browser when needed) or explicit (defined by the developer in the grid template). By combining multiple rows and columns, grid tracks provide a powerful and adaptable way to build responsive and organized layouts..</div>
+            </div>
+            <div class="box box4">
+                <div class="title">Grid Gaps</div>
+                <div class="description">Grid gaps are the spaces between rows and columns in a CSS Grid layout. They are defined using the gap property (or its older name, grid-gap). Grid gaps help separate grid items, creating a cleaner and more visually appealing layout without adding extra padding or margins to individual items. The gap property can specify uniform spacing for both rows and columns or use row-gap and column-gap individually to define different values for vertical and horizontal spacing. For example, gap: 20px 10px; sets a 20px gap between rows and a 10px gap between columns. Grid gaps are particularly useful because they maintain the layout structure while allowing items to align naturally within their cells. This feature simplifies layout design by ensuring consistent spacing without additional styling on grid items.</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
